@@ -3,8 +3,8 @@
 
 # Define the repository folder and remote repo URL (update REMOTE_URL accordingly)
 REPO_DIR="$HOME/my_setup"
-REMOTE_URL="git@github.com:yourusername/my_setup.git"  # Update this with your actual repo URL
-
+#REMOTE_URL="git@github.com:yourusername/my_setup.git"  # Update this with your actual repo URL
+REMOTE_URL="git@github.com:nbatada/my_setup.git"
 echo "Creating repository folder at $REPO_DIR..."
 mkdir -p "$REPO_DIR"
 

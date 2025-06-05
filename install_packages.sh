@@ -8,3 +8,11 @@ python setup.py install
 #if (!require("BiocManager", quietly=TRUE))
 #    install.packages("BiocManager")
 BiocManager::install("DNAcopy")
+
+# after 
+echo 'export PYTHONPATH="/home/nbatada/git/cnvkit:$PYTHONPATH"' >> ~/.bashrc
+echo 'alias cnvkit="python -m cnvlib.cnvkit"' >> ~/.bashrc
+source ~/.bashrc
+
+# now you can use cnvkit from command line
+

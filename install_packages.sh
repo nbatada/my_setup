@@ -5,6 +5,8 @@ conda config --add channels conda-forge --add channels bioconda
 conda activate condaenv
 
 
+# menubar apps
+https://apps.apple.com/us/app/next-meeting/id1017470484?mt=12 # Next meeting
 
 # R
 install.packages("BiocManager")

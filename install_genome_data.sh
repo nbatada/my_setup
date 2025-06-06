@@ -16,3 +16,9 @@ cat chr*.fa > hg19.fasta
 
 # (Optional) Clean up individual chromosome files if you only need the combined one
 rm chr*.fa
+
+
+##--
+# GENCODE V48 
+https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_48/
+https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_48/gencode.v48.primary_assembly.annotation.gtf.gz

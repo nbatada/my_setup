@@ -26,3 +26,6 @@ install.packages("limSolve", repos = c('https://karlines.r-universe.dev', 'https
 BiocManager::install("quantiseqr")
 install.packages("remotes")
 remotes::install_github("omnideconv/immunedeconv")
+
+# SingleR
+BiocManager::install("SingleR", force = TRUE)

@@ -16,3 +16,13 @@ source ~/.bashrc
 
 # now you can use cnvkit from command line
 
+
+
+
+# R packages
+# Immunedeconv
+BiocManager::install(version = "3.17") # for R 4.3
+install.packages("limSolve", repos = c('https://karlines.r-universe.dev', 'https://cloud.r-project.org'))
+BiocManager::install("quantiseqr")
+install.packages("remotes")
+remotes::install_github("omnideconv/immunedeconv")

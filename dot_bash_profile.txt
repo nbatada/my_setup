@@ -1,0 +1,38 @@
+# .bash_profile
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/nbatada/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/nbatada/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/Users/nbatada/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/nbatada/miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+echo "DEBUG: .bash_profile loaded"
+
+# Add XQuartz binaries
+export PATH="/opt/X11/bin:$PATH"
+
+# Add user-specific Python binaries (e.g., pip installs --user)
+export PATH="/Users/nbatada/Library/Python/3.11/bin:$PATH"
+
+# Add your personal bin directory for custom scripts
+export PATH="$HOME/bin:$PATH"
+
+# Set PYTHONPATH for custom Python modules
+export PYTHONPATH=~/lib
+
+# Set BASH_CONF for identification
+export BASH_CONF="bash_profile"
+
+# Source .bashrc for interactive non-login shells (crucial for macOS)
+if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+fi

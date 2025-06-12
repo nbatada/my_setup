@@ -1,13 +1,3 @@
-# Python
-conda config --add channels conda-forge --add channels bioconda 
-
-#conda create -y -n condaenv python=3.8.5 samtools=1.3.1 bowtie2=2.4.1 pysam=0.16.0.1 pandas=1.1.2 python-igraph=0.8.3 biopython=1.77 \
-conda activate condaenv
-
-
-# menubar apps
-https://apps.apple.com/us/app/next-meeting/id1017470484?mt=12 # Next meeting
-
 # R
 install.packages("BiocManager")
 install.packages("remotes")

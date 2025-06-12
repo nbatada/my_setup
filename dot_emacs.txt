@@ -1,0 +1,87 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(global-display-line-numbers-mode)
+
+(setq tab-width 4)
+(auto-fill-mode -1)
+
+;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(menu-bar-mode -1)
+(setq ns-auto-hide-menu-bar t)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+(global-set-key (kbd "M-g") 'goto-line)
+(global-set-key (kbd "M-r") 'replace-string)
+(global-set-key (kbd "M-w") 'toggle-truncate-lines)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(mouse-wheel-mode 1) ; prevent zooming with mouse wheel
+(global-set-key (kbd "<C-mouse-4>") nil)
+(global-set-key (kbd "<C-mouse-5>") nil)
+(global-set-key (kbd "<M-mouse-4>") nil)
+(global-set-key (kbd "<M-mouse-5>") nil)
+(global-set-key (kbd "<s-mouse-4>") nil)
+(global-set-key (kbd "<s-mouse-5>") nil)
+
+
+
+(delete-selection-mode t)
+(transient-mark-mode t)
+(setq x-select-enable-clipboard t)
+(show-paren-mode t)
+(setq column-number-mode t)
+
+;; Create a directory for backups if it doesn't exist
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
+
+;; Always save backups by copying (to avoid issues with symlinks)
+(setq backup-by-copying t)
+
+;; Set how many backup versions to keep
+(setq delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t) ;; Use version numbers for backups
+(require 'ess)
+(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
+(add-to-list 'auto-mode-alist '("\\.r\\'" . R-mode))
+
+(set-background-color "#BCC6CC")  ;; Light gray cornflower color
+
+(setq-default electric-indent-inhibit t) ;; prevent indentation of comments
+
+(custom-set-faces
+ '(sh-heredoc ((t (:foreground "dark blue")))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun clear-current-buffer ()
+  "Clear the entire buffer, leaving it empty, with undo support."
+  (interactive)
+  (let ((content (buffer-string)))  ; Save the current content of the buffer
+    (erase-buffer)
+    (insert content)
+    (undo-boundary)  ; Create an undo boundary before clearing
+    (delete-region (point-min) (point-max))))
+
+(global-set-key (kbd "C-S-<delete>") 'clear-current-buffer)
+
+(defun undo-clear-current-buffer ()
+  "Undo the last buffer clear operation."
+  (interactive)
+  (undo))
+
+(global-set-key (kbd "C-S-M-<delete>") 'undo-clear-current-buffer)
+;# control-shift delete: clear the buffer
+;# control-shift-option delete: undo
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
